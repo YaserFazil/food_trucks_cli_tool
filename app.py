@@ -42,7 +42,7 @@ def search_food_trucks(file_path, food_type):
             print(f"No food trucks found serving {food_type}.")
 
 
-# Function to provide information about food trucks in a location
+# Function to provide information about food trucks in a specific address
 def location_info(file_path, location):
     with open(file_path, 'r') as csvfile:
         csvreader = csv.DictReader(csvfile)
