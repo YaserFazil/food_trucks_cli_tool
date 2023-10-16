@@ -65,7 +65,7 @@ def location_info(file_path, location):
 
 # Function to calculate the distance between two coordinates
 def calculate_distance(coord1, coord2):
-    return geodesic(coord1, coord2).meters
+    return geodesic(coord1, coord2).miles
 
 # Function to find and display nearby food trucks
 def find_nearby_food_trucks(file_path, location, max_distance):
@@ -79,7 +79,7 @@ def find_nearby_food_trucks(file_path, location, max_distance):
                 nearby_trucks.append(row)
 
         if nearby_trucks:
-            print(f"Nearby Food Trucks within {max_distance} meters:")
+            print(f"Nearby Food Trucks within {max_distance} miles:")
             for truck in nearby_trucks:
                 truck_location = (float(truck['Latitude']), float(truck['Longitude']))
                 distance = calculate_distance(location, truck_location)
@@ -87,10 +87,10 @@ def find_nearby_food_trucks(file_path, location, max_distance):
                 print("Food Items:", truck["FoodItems"])
                 print("Address:", truck["Address"])
                 print("Location:", truck['Location'])
-                print("Distance:", distance, "meters")
+                print("Distance:", distance, "miles")
                 print("=" * 30)
         else:
-            print(f"No food trucks found within {max_distance} meters of the specified location.")
+            print(f"No food trucks found within {max_distance} miles of the specified location.")
 
 
 
@@ -120,7 +120,7 @@ def main():
         elif user_input == "distance":
             latitude = float(input("Enter latitude: "))
             longitude = float(input("Enter longitude: "))
-            max_distance = float(input("Enter maximum distance (meters): "))
+            max_distance = float(input("Enter maximum distance (miles): "))
             # Calculate the distance from a specified location to all food trucks
             if latitude is not None and longitude is not None:
                 user_location = (latitude, longitude) # Specify the user's location (latitude, longitude)
@@ -136,12 +136,12 @@ def main():
                             print("Food Items:", row["FoodItems"])
                             print("Address:", row["Address"])
                             print("Location:", row['Location'])
-                            print("Distance:", distance, "meters")
+                            print("Distance:", distance, "miles")
                             print("=" * 30)
         elif user_input == "nearby":
             latitude = float(input("Enter latitude: "))
             longitude = float(input("Enter longitude: "))
-            max_distance = float(input("Enter maximum distance (meters): "))
+            max_distance = float(input("Enter maximum distance (miles): "))
             user_location = (latitude, longitude)
             find_nearby_food_trucks(csv_file_name, user_location, max_distance)
         elif user_input == "exit":
