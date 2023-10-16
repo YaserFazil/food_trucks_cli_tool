@@ -147,7 +147,7 @@ def main():
         elif user_input == "exit":
             break
         else:
-            print("Invalid command. Please choose a valid command from the list.")
+            print("Invalid command. Please choose a valid command from the docs.")
 
 if __name__ == "__main__":
     main()
